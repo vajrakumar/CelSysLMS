@@ -10,7 +10,6 @@ Ext.application({
 
     requires: [
         'LMS.view.main.Main',
-        'Ext.chart.Cartesian'
     ],
 
     // The name of the initial view to create. With the classic toolkit this class
