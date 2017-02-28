@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'LMS' );
-$image-search-path: '/home/shiva/Downloads/HRMS/build/development/LMS/classic/resources';
+$image-search-path: '/home/shiva/Downloads/celestialhrms/src/HRMS/build/development/LMS/classic/resources';
 $theme-name:  dynamic( 'theme-triton' );
 $include-ext-abstractcomponent: dynamic(true);;
 $include-ext-abstractcontainer: dynamic(true);;

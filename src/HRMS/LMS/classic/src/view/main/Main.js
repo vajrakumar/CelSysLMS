@@ -18,7 +18,7 @@ Ext.define('LMS.view.main.Main', {
         'LMS.view.main.List'
     ],
 
-    controller: 'main',
+    //controller: 'main',
     viewModel: 'main',
 
     ui: 'navigation',
@@ -28,6 +28,7 @@ Ext.define('LMS.view.main.Main', {
     tabRotation: 0,
 
     header: {
+        hidden:true,
         layout: {
             align: 'stretchmax'
         },
@@ -76,26 +77,26 @@ Ext.define('LMS.view.main.Main', {
     },
 
     items: [{
-        title: 'Home',
-        iconCls: 'fa-home',
+        title: 'Leave management',
+        iconCls: 'fa-users',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
             xtype: 'mainlist'
         }]
     }, {
-        title: 'Users',
+        title: 'TBD1',
         iconCls: 'fa-user',
         bind: {
             html: '{loremIpsum}'
-        }
+        },
     }, {
-        title: 'Groups',
+        title: 'TBD2',
         iconCls: 'fa-users',
         bind: {
             html: '{loremIpsum}'
-        }
+        },
     }, {
-        title: 'Settings',
+        title: 'TBD3',
         iconCls: 'fa-cog',
         bind: {
             html: '{loremIpsum}'
