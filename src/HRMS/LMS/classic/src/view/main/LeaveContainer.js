@@ -1,6 +1,7 @@
 Ext.define('LMS.view.main.LeaveContainer',{
     extend:'Ext.container.Container',
     xtype:'leaveitems',
+    controller:'main-controller',
     requires:[
         'LMS.view.main.CircularProgressBar'
     ],
@@ -14,9 +15,9 @@ Ext.define('LMS.view.main.LeaveContainer',{
             defaults: {
                 margin: '25 25 25 25'
             },
-                
+
             items: [{
-                xtype: 'circularprogressbar',  
+                xtype: 'circularprogressbar',
                 msg:'CL',
                 radius: 200,
                 value: 12,
@@ -38,7 +39,7 @@ Ext.define('LMS.view.main.LeaveContainer',{
                }
             },{
                 xtype: 'circularprogressbar',
-                  
+
                 radius: 200,
                 value: 5,
                 //      leave availed
@@ -58,7 +59,7 @@ Ext.define('LMS.view.main.LeaveContainer',{
                  }
                }
             },{
-                xtype: 'circularprogressbar',  
+                xtype: 'circularprogressbar',
                 radius: 200,
                 value: 2,
                 //      leave availed
@@ -77,9 +78,11 @@ Ext.define('LMS.view.main.LeaveContainer',{
                     Ext.Msg.alert("Leave details", "You availed " + records.value + " leave out of " + records.maxValue);
                  }
                }
-            }]   
+            }]
         },{
             xtype:'button',
-            text:'Apply Leave'
+            text:'Apply Leave',
+            handler:"onApplyLeaveClick"
+
     }]
 })
