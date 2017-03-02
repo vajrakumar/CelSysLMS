@@ -12,7 +12,8 @@ Ext.define('LMS.view.main.Main', {
     requires: [
         'Ext.plugin.Viewport',
         'LMS.view.main.EmployeeGrid',
-        'LMS.view.main.LeaveContainer'      
+        'LMS.view.main.LeaveContainer',
+	'LMS.view.main.LeaveGrid'      
     ],
     layout:'border',
     defaults:{
@@ -32,7 +33,7 @@ Ext.define('LMS.view.main.Main', {
          'background-color':'	#4682B4'
         },
     },{
-        xtype:'employeegrid',
+        xtype:'lgrid',
         region:'center',
     },{
        xtype:'leaveitems',
