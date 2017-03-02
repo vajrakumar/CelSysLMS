@@ -6,7 +6,7 @@
  * TODO - Replace this content of this view to suite the needs of your application.
  */
 Ext.define('LMS.view.main.Main', {
-    extend: 'Ext.container.Container',
+    extend: 'Ext.panel.Panel',
     xtype: 'app-main',
     
     requires: [
@@ -20,21 +20,33 @@ Ext.define('LMS.view.main.Main', {
         border:1,
         style:{borderColor:'black',borderStyle:'solid'}
     },
-    items:[{
-        xtype:'container',
-        html:'Leave Management',
-        region:'north',
-        height:100,
-        //Style need to add to css
+     dockedItems: [{
+        xtype: 'toolbar',
+        dock:'top',
         style:{
-        'padding':'40px',
-         'font-size':'32px',
-         'align':'center',
-         'background-color':'	#4682B4'
+                'background-color':'#4682B4'
         },
-    },{
+        items: [{
+            xtype:'label',
+            text: 'Leave Management',
+            style:{
+                'padding':'20px',
+                'font-size':'32px',
+                'align':'center'
+            }
+        },'->',{
+            xtype:'tbtext',
+            html:'Hi Employee'           
+        },{
+            xtype:'image',
+            width:30,
+            height:30,
+            src:'resources/images/images.jpg'
+        }]
+    }],
+    items:[{
         xtype:'lgrid',
-        region:'center',
+        region:'center'
     },{
        xtype:'leaveitems',
        region: 'east'
