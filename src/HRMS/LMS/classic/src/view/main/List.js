@@ -4,7 +4,7 @@
 Ext.define('LMS.view.main.List', {
     extend: 'Ext.container.Container',
     xtype: 'mainlist',
-    items: [{             
+    items: [{
         xtype:'container',
         layout:{
             type:'vbox',
@@ -14,12 +14,12 @@ Ext.define('LMS.view.main.List', {
         items:[{
             xtype:'container',
             html: 'Leave Management'
-        }]                                         
+        }]
     },{
         xtype: 'container',
         layout: 'fit',
         layout: 'hbox',
-        
+
         items:[{
             xtype:'container',
             //html:'grid',
@@ -29,14 +29,14 @@ Ext.define('LMS.view.main.List', {
             xtype:'container',
            // html:'form',
             flex:1,
-          
+
             items:[{
                 xtype:'panel',
                 layout:'hbox',
                 defaults: {
                     margin: '25 25 25 25'
                 },
-                 
+
                 items: [{
                     xtype: 'button',
                     text: 'Button1'
@@ -46,11 +46,11 @@ Ext.define('LMS.view.main.List', {
                 },{
                     xtype: 'button',
                     text: 'Button3'
-                }]  
+                }]
             },{
                 xtype:'button',
-                text:'Apply Leave'
-            }]            
+                text:'Apply Leave',
+            }]
         }]
     }]
 });

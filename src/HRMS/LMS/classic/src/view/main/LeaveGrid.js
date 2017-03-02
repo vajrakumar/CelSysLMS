@@ -6,7 +6,7 @@ Ext.define('LMS.view.main.LeaveGrid', {
 	layout: 'fit',
 	//style: 'margin:250px 0 0 0',
 	//height: 390,
-
+	controller:'main-controller',
 	requires: [
 		'LMS.store.LeaveStatusTable',
 		'LVM.view.main.LeaveGridContextMenu',
@@ -76,7 +76,7 @@ Ext.define('LMS.view.main.LeaveGrid', {
 			xtype: 'actioncolumn',
 			sortable: 'false',
 			width: 100,
-			
+
 
 			items: [{
 					tooltip: 'Edit Leave',
@@ -87,7 +87,7 @@ Ext.define('LMS.view.main.LeaveGrid', {
 						contextMenu.showAt(e.getXY());
 					}
 
-				
+
 				}
 
 			]
