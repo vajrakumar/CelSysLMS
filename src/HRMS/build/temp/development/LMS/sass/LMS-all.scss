@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'LMS' );
-$image-search-path: '/home/shiva/Desktop/celestialhrms/src/HRMS/build/development/LMS/classic/resources';
+$image-search-path: '/home/shiva/Downloads/celestialhrms/celestialhrms/src/HRMS/build/development/LMS/classic/resources';
 $theme-name:  dynamic( 'theme-triton' );
 $include-ext-abstractcomponent: dynamic(true);;
 $include-ext-abstractcontainer: dynamic(true);;
@@ -911,15 +911,23 @@ $include-ext-window-toast: dynamic(true);;
 $include-ext-window-window: dynamic(true);;
 $include-lms-application: dynamic(true);;
 $include-lms-model-employeemodel: dynamic(true);;
+$include-lms-store-employee: dynamic(true);;
 $include-lms-store-employeestore: dynamic(true);;
+$include-lms-store-leavestatustable: dynamic(true);;
 $include-lms-store-personnel: dynamic(true);;
 $include-lms-view-main-circularprogressbar: dynamic(true);;
 $include-lms-view-main-employeegrid: dynamic(true);;
 $include-lms-view-main-leavecontainer: dynamic(true);;
+$include-lms-view-main-leaveformviewmodel: dynamic(true);;
+$include-lms-view-main-leavegrid: dynamic(true);;
+$include-lms-view-main-leavewindow: dynamic(true);;
+$include-lms-view-main-leavewindowcontroller: dynamic(true);;
 $include-lms-view-main-list: dynamic(true);;
 $include-lms-view-main-main: dynamic(true);;
 $include-lms-view-main-maincontroller: dynamic(true);;
 $include-lms-view-main-mainmodel: dynamic(true);;
+$include-lms-view-main-mainviewcontroller: dynamic(true);;
+$include-lvm-view-main-leavegridcontextmenu: dynamic(true);;
 $output-paths: ("path": "../../classic/resources", "shared": "../../resources");
 
 /* ======================== ETC ======================== */
