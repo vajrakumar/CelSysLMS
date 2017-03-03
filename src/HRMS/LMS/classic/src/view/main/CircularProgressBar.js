@@ -91,7 +91,6 @@ Ext.define('LMS.view.main.CircularProgressBar', {
         }
     },
     applyTitleColor: function (color) {
-        debugger;
         var titleColor = this.config.titleColor;
         this.canvasTitle.setStyle('color',titleColor);
     },
