@@ -14,9 +14,9 @@ Ext.define("LMS.view.main.LeaveWindow", {
     viewModel: {
         type: 'leaveformviewmodel',
         data:{
-          from:'',
-          to:'',
-          reason:''
+          from: null,
+          to:null,
+          reason:null
         }
 
     },
@@ -30,24 +30,33 @@ Ext.define("LMS.view.main.LeaveWindow", {
         items: [{
                 xtype: 'datefield',
                 fieldLabel: 'From',
+                name:'from',
                 bind: '{from}',
                 format:'d/m/Y',
+                layout:'form',
                 reference:'fromdate',
                 allowBlank:false,
                 disabledDays:[0, 6],
+                disabledDaysText:'Cannot select Weekends',
+                disabledDatesText:'Cannot select Holidays',
+                formatText:'',
                 listeners:{
-                  change:'onFromDateChange'
+                  change:'onFromDateChange',
+                  afterrender:'onCalendarRender'
                 }
             }, {
                 xtype: 'datefield',
                 fieldLabel: 'To',
+                name:'to',
                 bind:'{to}',
                 format:'d/m/Y',
                 reference:'todate',
                 allowBlank:false,
                 disabledDays:[0, 6],
+                formatText:'',
                 listeners:{
-                  change:'onToDateChange'
+                  change:'onToDateChange',
+                  afterrender:'onCalendarRender'
                 }
             }, {
                 xtype: 'displayfield',
@@ -61,12 +70,11 @@ Ext.define("LMS.view.main.LeaveWindow", {
                     type: 'hbox'
                 },
                 items: [{
-                        xtype: 'radiofield',
+                        xtype: 'radio',
                         name: 'leaveType',
                         value: 'pl',
                         boxLabel: 'PL',
-                        //text:'PL',
-                        checked: true
+                        //checked: true
                     },
                     {
                         xtype: 'radiofield',
@@ -85,7 +93,9 @@ Ext.define("LMS.view.main.LeaveWindow", {
             {
                 xtype: 'textareafield',
                 fieldLabel: 'Reason',
+                name:'reason',
                 bind:'{reason}',
+                maxLength:500
             },
             {
                 xtype: 'fieldcontainer',
@@ -99,17 +109,8 @@ Ext.define("LMS.view.main.LeaveWindow", {
                         },
                         displayField: 'name',
                         valueField: 'email'
-                    },
-                    {
-                        xtype: 'tagfield',
-                        fieldLabel: 'Others',
-                        padding: 5,
-                        store: {
-                            type: 'Employee'
-                        },
-                        displayField: 'name',
-                        valueField: 'email'
                     }
+
                 ]
             },
             {
@@ -123,7 +124,8 @@ Ext.define("LMS.view.main.LeaveWindow", {
             handler: 'onFormCancel'
         }, {
             text: 'Submit',
-            formBind:true
+            formBind:true,
+            handler:'onFormSubmit'
 
         }]
     }]
