@@ -31,7 +31,9 @@ Ext.define('LMS.view.main.LeaveContainer',{
                 textColor: 'black',
                 pendingColor: 'grey',
                 showLeaveInfo: true,
-                start: 2,
+				title: 'PL',
+				titleColor: 'red',
+                start: 0,
                 listeners:{
                 click: function (pBar,records) {
                     Ext.Msg.alert("Leave details", "You availed " + records.value + " leave out of " + records.maxValue);
@@ -52,6 +54,8 @@ Ext.define('LMS.view.main.LeaveContainer',{
                 textColor: 'black',
                 pendingColor: 'grey',
                 showLeaveInfo: true,
+				title: 'SL',
+				titleColor: 'red',
                 start: 2,
                 listeners:{
                 click: function (pBar,records) {
@@ -66,12 +70,14 @@ Ext.define('LMS.view.main.LeaveContainer',{
                 maxValue: 10,
                 //      total number of leave
                 spacing: 20,
-                showAnimation: true,
+                showAnimation: false,
                 color: '#09F',
                 borderWidth: 40,
                 textColor: 'black',
                 pendingColor: 'grey',
                 showLeaveInfo: true,
+				title: 'Comp Off',
+				titleColor: 'red',
                 start: 2,
                 listeners:{
                 click: function (pBar,records) {

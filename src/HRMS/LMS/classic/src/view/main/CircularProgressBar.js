@@ -16,6 +16,8 @@ Ext.define('LMS.view.main.CircularProgressBar', {
         borderWidth: 10,
         animationTime: 30,
         textColor: null,
+        title: null,
+        titleColor: null,
         footer: null,
         showLeaveInfo: true
     },
@@ -25,40 +27,80 @@ Ext.define('LMS.view.main.CircularProgressBar', {
     element: {
         reference: 'element',
         tag: 'div',
-        style: {
-            'cursor': 'pointer'
-        },
+        cls: 'canvas-align',
         children: [{
-            reference: 'canvasEl',
-            tag: 'canvas'
-        }, {
             tag: 'div',
-            reference: 'canvasFooter'
-        }],
-        listeners: {
-            click: {
-                fn: function () {
-                    var me = this,
-                        records = {
-                            value: me.config.value,
-                            maxValue: me.config.maxValue,
-                            textColor: me.config.textColor,
-                            pendingColor: me.config.pendingColor
-                        };
-                    me.fireEvent('click',me,records);
+            reference: 'canvasTitle',
+            cls:'wtc-canvas-header-text'
+        },{
+            reference: 'canvasEl',
+            tag: 'canvas',
+            style: {
+                'cursor': 'pointer'
+            },
+            listeners: {
+                click: {
+                    fn: function () {
+                        var me = this,
+                            records = {
+                                value: me.config.value,
+                                maxValue: me.config.maxValue,
+                                textColor: me.config.textColor,
+                                pendingColor: me.config.pendingColor
+                            };
+                        me.fireEvent('click',me,records);
+                    },
+                    element: 'innerElement'
                 },
-                element: 'innerElement'
+                mouseover: {
+                    fn: function (pBar) {
+                        var ctx = this.canvasEl.dom.getContext('2d');
+                        ctx.globalAlpha = 0.6;
+                        var customFont = 'bold 30px Arial';
+                        this.showSimpleDraw(customFont);
+                    },
+                    element: 'innerElement'
+                },
+                mouseleave: {
+                    fn: function (pBar) {
+                        var ctx = this.canvasEl.dom.getContext('2d');
+                        ctx.globalAlpha = 1;
+                        var customFont = 'bold 15px Arial';
+                        this.showSimpleDraw(customFont);
+                    },
+                    element: 'innerElement'
+                }
             }
-        }
+        }]
     },
     constructor: function(config) {
         this.callParent([config]);
         Ext.getBody().appendChild(this.element);
     },
+    applyTitle: function(text) {
+        var dimension = this.config.radius;
+        if(this.containerEl) {
+            this.containerEl.setWidth(dimension);
+            this.canvasTitle.setWidth(dimension);
+        }
+        return text;
+    },
+    updateTitle: function(text) {
+        if (!Ext.isEmpty(text)) {
+            this.canvasTitle.setText(text);
+        }
+    },
+    applyTitleColor: function (color) {
+        debugger;
+        var titleColor = this.config.titleColor;
+        this.canvasTitle.setStyle('color',titleColor);
+    },
     applyFooter: function(text) {
         var dimension = this.config.radius;
-        this.containerEl.setWidth(dimension);
-        this.canvasFooter.setWidth(dimension);
+        if(this.containerEl) {
+            this.containerEl.setWidth(dimension);
+            this.canvasFooter.setWidth(dimension);
+        }
         return text;
     },
     updateFooter: function(text) {
@@ -133,7 +175,7 @@ Ext.define('LMS.view.main.CircularProgressBar', {
         var interval = setInterval(progressBar, this.config.animationTime);
     },
     //Simple draw
-    showSimpleDraw: function() {
+    showSimpleDraw: function(customFont) {
         var me = this,
         ctx = me.canvasEl.dom.getContext('2d'),
         start = me.config.start,
@@ -154,18 +196,24 @@ Ext.define('LMS.view.main.CircularProgressBar', {
         ctx.clearRect(0, 0, cw, ch);
         ctx.lineWidth = me.config.borderWidth;
         //Updating center % text
-        me.showPercent(ctx, textColor, currentValue, centerCoordinateX, centerCoordinateY, cw, maxValue);
+        me.showPercent(ctx, textColor, currentValue, centerCoordinateX, centerCoordinateY, cw, maxValue, customFont);
         // Drawing outer (pending arc)
         me.drawPending(ctx, centerCoordinateX, centerCoordinateY, radius, 0, Math.PI * 2, true);
         //drawing progress arc
         me.drawProgess(ctx, color, centerCoordinateX, centerCoordinateY, radius, start, diff, false);
     },
-    showPercent: function(ctx, textColor, currentValue, x, y, cw, maxValue) {
+    showPercent: function(ctx, textColor, currentValue, x, y, cw, maxValue, customFont) {
         var showLeaveInfo = this.getShowLeaveInfo();
         if (showLeaveInfo) {
             ctx.fillStyle = textColor;
+            if(customFont) {
+                ctx.font = customFont;
+            } else {
+                ctx.font = 'bold 15px Arial';
+            }
             ctx.textAlign = 'center';
-            ctx.font = 'bold 15px Arial';
+            /*var span = document.createElement('span');
+            span.textContent = options.percent + '%';*/
             ctx.fillText(currentValue + '/' + maxValue, x, y, cw / 2);
         }
     },
