@@ -1,24 +1,17 @@
-/**
- * This class is the controller for the main view for the application. It is specified as
- * the "controller" of the Main view class.
- *
- * TODO - Replace this content of this view to suite the needs of your application.
- */
 Ext.define('LMS.view.main.MainController', {
-     extend: 'Ext.app.ViewController',
-    alias: 'controller.pie-basic',
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.main',
 
-    onPreview: function () {
-        var chart = this.lookupReference('chart');
-        chart.preview();
-    },
+    onClickButton: function () {
 
-    onDataRender: function (v) {
-        return v + '%';
-    },
+        // Remove the localStorage key/value
+        localStorage.removeItem('celestialEmp');
 
-    onSeriesTooltipRender: function (tooltip, record, item) {
-        tooltip.setHtml(record.get('os') + ': ' + record.get('data1') + '%');
+        // Remove Main View
+        this.getView().destroy();
+
+        // Add the Login Window
+        Ext.widget('login-page');
+
     }
-
 });
