@@ -15,6 +15,7 @@ Ext.define('LMS.view.main.Main', {
         'LMS.view.main.EmployeeGrid',
         'LMS.view.main.LeaveContainer',
 	    'LMS.view.main.LeaveGrid',
+'LMS.view.main.LeaveGridContainerPanel',
          'LMS.view.main.MainController',
         'LMS.view.main.MainModel'     
     ],
@@ -61,7 +62,7 @@ Ext.define('LMS.view.main.Main', {
         }]
     }],
     items:[{
-        xtype:'lgrid',
+        xtype:'grid_container',
         region:'center'
     },{
        xtype:'leaveitems',
