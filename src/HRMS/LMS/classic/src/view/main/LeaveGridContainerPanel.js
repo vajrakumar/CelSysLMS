@@ -10,17 +10,16 @@ layout: {
     requires: ['LMS.view.main.LeaveGridContainerController'],
     items: [{
             xtype: 'container',
-            // width: '100',
-            layout: 'hbox',
-            flex : 1,
-
+            layout: {
+		type:'hbox',
+		align: 'center'
+		},
+	    flex:1,
             items: [ {
                     xtype: 'combobox',
                     allowBlank: false,
-                   // width:100,
-                    // emptyText:'All',
-                    //submitEmptyText: false,
                     fieldLabel:'Type ',
+		    editable: false,
                     value:'All',
                     store: ['Approved', 'Rejected', 'Pending','All'],
                     listeners: {
@@ -44,6 +43,7 @@ layout: {
 
 
         {
+	    flex: 9,
             xtype: 'lgrid',
 
         }

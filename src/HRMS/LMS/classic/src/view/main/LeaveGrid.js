@@ -2,9 +2,6 @@
 
 Ext.define('LMS.view.main.LeaveGrid', {
 	xtype: 'lgrid',
-//layout: 'fit',
-	height:518,
-	width:600,
 	reference:'GridLeave',
 	controller: 'EditContextMenu',
 	requires: [
