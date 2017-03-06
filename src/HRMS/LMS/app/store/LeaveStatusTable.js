@@ -15,7 +15,11 @@ Ext.define('LMS.store.LeaveStatusTable', {
             type: 'json'
         },
     },
-    autoLoad: 'true'
+    autoLoad: 'true',
+    sorters: [{
+        property: 'created_at',
+        direction: 'DESC'
+    }],
 
 
 })

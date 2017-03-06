@@ -1,28 +1,25 @@
 /**
- * The main application class. An instance of this class is created by app.js when it
- * calls Ext.application(). This is the ideal place to handle application launch and
- * initialization details.
+ * The main application class. An instance of this class is created by `app.js` when it calls
+ * Ext.application(). This is the ideal place to handle application launch and initialization
+ * details.
  */
 Ext.define('LMS.Application', {
     extend: 'Ext.app.Application',
-    
+
     name: 'LMS',
 
     stores: [
         // TODO: add global / shared stores here
     ],
-    
+    views: [
+        'LMS.view.login.Login',
+        'LMS.view.main.Main'
+    ],
     launch: function () {
-        // TODO - Launch the application
-    },
-
-    onAppUpdate: function () {
-        Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
-            function (choice) {
-                if (choice === 'yes') {
-                    window.location.reload();
-                }
-            }
-        );
+        //local storage variable
+        var loggedIn;
+        loggedIn = localStorage.getItem("celestialEmp");
+        console.log(loggedIn);
+        Ext.widget(loggedIn ? 'app-main' : 'login-page');
     }
 });
