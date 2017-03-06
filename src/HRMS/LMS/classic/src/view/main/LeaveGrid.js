@@ -2,9 +2,10 @@
 
 Ext.define('LMS.view.main.LeaveGrid', {
 	xtype: 'lgrid',
-	title: 'Leave Status',
-	layout: 'fit',
-
+//layout: 'fit',
+	height:518,
+	width:600,
+	reference:'GridLeave',
 	controller: 'EditContextMenu',
 	requires: [
 		'LMS.store.LeaveStatusTable',
@@ -36,6 +37,7 @@ Ext.define('LMS.view.main.LeaveGrid', {
 				return 'leave-hold';
 		}
 	},
+	plugin :[{ptype:"gridFilter"}],
 	columns: [{
 			dataIndex: 'from_date',
 			formatter: 'date("m/d/Y")',
@@ -73,23 +75,6 @@ Ext.define('LMS.view.main.LeaveGrid', {
 				}
 			},
 
-
-		},
-		{
-			xtype: 'actioncolumn',
-			sortable: 'false',
-			width: 100,
-
-
-			items: [{
-					tooltip: 'Edit Leave',
-					icon: 'http://rala.uk.com/wp-content/themes/rala/images/SVG/menu.svg',
-					handler: 'onclickGrid'
-
-
-				}
-
-			]
 
 		}
 
