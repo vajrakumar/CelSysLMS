@@ -19,8 +19,13 @@ Ext.define("LMS.view.main.LeaveWindowController",{
       }
     });
   },
-  getHolidays:function(city){
-
+  disablePastDays:function(checkbox,checked) {
+      if(checked){
+      var fromdate = this.lookupReference('fromdate'),
+          todate = this.lookupReference('todate');
+          fromdate.setMinValue(new Date());
+          todate.setMinValue(new Date());
+        }
   },
   onToDateChange:function(todate) {
     var fromdate = this.lookupReference('fromdate'),
@@ -37,19 +42,21 @@ Ext.define("LMS.view.main.LeaveWindowController",{
     }
   },
   onFormSubmit:function(form){
+
     var me = this,
-        form = me.lookupReference('leaveForm').getForm();
+        form = me.lookupReference('leaveForm').getForm(),
+        values = form.getValues();
+
     var leaveRequest = {
       id:10,
       from_date:Ext.Date.format(form.findField('from').getValue(),"Y-m-d H:i:s"),
       to_date:Ext.Date.format(form.findField('to').getValue(),"Y-m-d H:i:s"),
       status:false,
-      description:form.findField('reason').getValue(),
+      description:values['reason'],
       approver_id:1,
       employee_id:1,
-      leave_type_id:2
+      leave_type_id:values['leaveType']
     };
-    console.log(Ext.data.leaveRequest);
     Ext.Ajax.request({
       url:' http://192.168.6.184:3000/leave_requests',
       method:'POST',
@@ -61,10 +68,15 @@ Ext.define("LMS.view.main.LeaveWindowController",{
       success:function(){
         me.lookupReference('leaveForm').getForm().reset();
         var win = Ext.WindowManager.getActive();
+        var thisView = me.getView(),
+        homepage  = thisView.up('app-main');
+        //debugger;
         if (win) {
           win.close();
         }
-        me.lookupReference('leave_grid').getView().refresh();
+        var mainView = Ext.first('app-main');
+             mainView.down('lgrid').getStore().load();
+             mainView.down('lgrid').getView().refresh();
       },
       failure:function(){
         me.lookupReference('leaveForm').getForm().reset();
@@ -72,8 +84,12 @@ Ext.define("LMS.view.main.LeaveWindowController",{
         if (win) {
           win.close();
         }
-        me.lookupReference('leave_grid').getView().refresh();
+        var mainView = Ext.first('app-main');
+             mainView.down('lgrid').getStore().load();
+             mainView.down('lgrid').getView().refresh();
       },
     });
+
+
   }
-})
+});

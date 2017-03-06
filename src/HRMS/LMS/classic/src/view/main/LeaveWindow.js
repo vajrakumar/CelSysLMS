@@ -3,7 +3,7 @@ Ext.define("LMS.view.main.LeaveWindow", {
     xtype: 'leave-window',
     reference: 'leavePopupWindow',
     title: "Apply For Leave",
-    layout: 'fit',
+    //layout: 'fit',
     modal: true,
     controller: 'leavewindowcontroller',
     requires: [
@@ -13,27 +13,22 @@ Ext.define("LMS.view.main.LeaveWindow", {
     ],
     viewModel: {
         type: 'leaveformviewmodel',
-        data:{
-          from: null,
-          to:null,
-          reason:null
-        }
+        
 
     },
     items: [{
         xtype: 'form',
         reference: 'leaveForm',
         padding: 10,
-        layout: {
-            type: 'vbox',
-        },
+
+        layout: 'form',
         items: [{
                 xtype: 'datefield',
                 fieldLabel: 'From',
                 name:'from',
                 bind: '{from}',
                 format:'d/m/Y',
-                layout:'form',
+                //layout:'form',
                 reference:'fromdate',
                 allowBlank:false,
                 disabledDays:[0, 6],
@@ -64,28 +59,28 @@ Ext.define("LMS.view.main.LeaveWindow", {
                 bind: '{datediff}'
             },
             {
-                xtype: "radiogroup",
+                xtype: "fieldcontainer",
+                defaultType:'radio',
                 fieldLabel: "Type of Leave",
                 layout: {
                     type: 'hbox'
                 },
                 items: [{
-                        xtype: 'radio',
                         name: 'leaveType',
-                        value: 'pl',
+                        inputValue:1,
                         boxLabel: 'PL',
-                        //checked: true
+                        listeners:{
+                          change:'disablePastDays'
+                        }
                     },
                     {
-                        xtype: 'radiofield',
                         name: 'leaveType',
-                        value: 'cl',
+                        inputValue: 2,
                         boxLabel: 'CL'
                     },
                     {
-                        xtype: 'radiofield',
                         name: 'leaveType',
-                        value: 'comp0ff',
+                        inputValue: 3,
                         boxLabel: 'Comp Off'
                     }
                 ]
@@ -93,30 +88,24 @@ Ext.define("LMS.view.main.LeaveWindow", {
             {
                 xtype: 'textareafield',
                 fieldLabel: 'Reason',
+                width:'100%',
                 name:'reason',
                 bind:'{reason}',
                 maxLength:500
             },
             {
-                xtype: 'fieldcontainer',
-                layout: 'hbox',
-
-                items: [{
-                        xtype: 'tagfield',
-                        fieldLabel: 'Notify',
-                        store: {
-                            type: 'Employee'
-                        },
-                        displayField: 'name',
-                        valueField: 'email'
-                    }
-
-                ]
+                    xtype: 'tagfield',
+                    fieldLabel: 'Notify',
+                    store: {
+                        type: 'Employee'
+                    },
+                    displayField: 'name',
+                    valueField: 'email'
             },
             {
                 xtype: 'displayfield',
                 fieldLabel: 'Mail Body',
-                bind: 'Hey <br> This is my leave request <br> From: {from} <br> To: {to} <br>Reason: {reason} <br> Regards,<br> Goutham'
+                bind: 'Hey <br> I am on leave from {fromdate} to {todate} due to {reason}.Please call or email me if required.<br> Regards,<br> Goutham'
             }
         ],
         buttons: [{

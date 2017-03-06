@@ -1,6 +1,11 @@
 Ext.define('LMS.view.main.LeaveFormViewModel',{
   extend:'Ext.app.ViewModel',
   alias:'viewmodel.leaveformviewmodel',
+  data:{
+    from: null,
+    to:null,
+    reason:null
+  },
   formulas:{
     datediff: function(get){
       if (typeof get('from')!='undefined'&&  typeof get('to')!='undefined'){
@@ -8,6 +13,14 @@ Ext.define('LMS.view.main.LeaveFormViewModel',{
       if (datediff>0){
       return datediff;
     }
-    }
-  }
+  }},
+    fromdate: function(get){
+      if (typeof get('from')!='undefined'){
+      return Ext.Date.format(get('from'),"d F l");
+    }},
+    todate: function(get){
+      if (typeof get('to')!='undefined'){
+      return Ext.Date.format(get('to'),"d F l");
+    }}
+
 }})
