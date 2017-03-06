@@ -10,11 +10,20 @@ Ext.define('LMS.view.main.Main', {
     xtype: 'app-main',
     
     requires: [
+        'LMS.view.login.Login',
         'Ext.plugin.Viewport',
         'LMS.view.main.EmployeeGrid',
         'LMS.view.main.LeaveContainer',
-	'LMS.view.main.LeaveGrid'      
+	    'LMS.view.main.LeaveGrid',
+         'LMS.view.main.MainController',
+        'LMS.view.main.MainModel'     
     ],
+    controller: 'main',
+    plugins: 'viewport',
+    viewModel: {
+        type: 'main'
+    },
+
     layout:'border',
     defaults:{
         border:1,
@@ -38,10 +47,17 @@ Ext.define('LMS.view.main.Main', {
             xtype:'tbtext',
             html:'Hi Employee'           
         },{
+       
+            xtype: 'button',
+            text: 'Logout',
+            margin: '10 0',
+            handler: 'onClickButton'
+   
+        },{
             xtype:'image',
             width:30,
             height:30,
-            src:'resources/images/images.jpg'
+            //src:'resources/images/images.jpg'
         }]
     }],
     items:[{

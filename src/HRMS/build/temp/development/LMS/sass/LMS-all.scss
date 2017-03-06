@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'LMS' );
-$image-search-path: '/home/shiva/Downloads/celestialhrms/celestialhrms/src/HRMS/build/development/LMS/classic/resources';
+$image-search-path: '/home/shiva/Desktop/celestialhrms/src/HRMS/build/development/LMS/classic/resources';
 $theme-name:  dynamic( 'theme-triton' );
 $include-ext-abstractcomponent: dynamic(true);;
 $include-ext-abstractcontainer: dynamic(true);;
@@ -915,9 +915,12 @@ $include-lms-store-employee: dynamic(true);;
 $include-lms-store-employeestore: dynamic(true);;
 $include-lms-store-leavestatustable: dynamic(true);;
 $include-lms-store-personnel: dynamic(true);;
+$include-lms-view-login-login: dynamic(true);;
+$include-lms-view-login-logincontroller: dynamic(true);;
 $include-lms-view-main-circularprogressbar: dynamic(true);;
 $include-lms-view-main-employeegrid: dynamic(true);;
 $include-lms-view-main-leavecontainer: dynamic(true);;
+$include-lms-view-main-leaveeditcontextmenu: dynamic(true);;
 $include-lms-view-main-leaveformviewmodel: dynamic(true);;
 $include-lms-view-main-leavegrid: dynamic(true);;
 $include-lms-view-main-leavewindow: dynamic(true);;
@@ -1386,3 +1389,12 @@ $relative-image-path-for-uis: $theme-triton-resource-path;
 @import '../../../../../ext/classic/theme-triton/sass/src/menu/Menu';
 @import '../../../../../ext/classic/theme-triton/sass/src/tab/Tab';
 @import '../../../../../ext/classic/theme-triton/sass/src/window/Toast';
+
+/* including package LMS */
+$LMS-resource-root: '' !default;
+$LMS-resource-path: 'images' !default;
+$current-package: false;
+$current-resource-root: $LMS-resource-root;
+$relative-image-path-for-uis: $LMS-resource-path;
+@import '../../../../../LMS/classic/sass/src/view/login/Login';
+@import '../../../../../LMS/classic/sass/src/view/main/CircularProgressBar';
