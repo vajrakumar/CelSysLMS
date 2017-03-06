@@ -58,6 +58,15 @@ Ext.define('LMS.view.main.CircularProgressBar', {
                         ctx.globalAlpha = 0.6;
                         var customFont = 'bold 30px Arial';
                         this.showSimpleDraw(customFont);
+
+                        var me = this,
+                            records = {
+                                value: me.config.value,
+                                maxValue: me.config.maxValue,
+                                textColor: me.config.textColor,
+                                pendingColor: me.config.pendingColor
+                            };
+                        me.fireEvent('mouseover',me,records);
                     },
                     element: 'innerElement'
                 },
@@ -67,6 +76,15 @@ Ext.define('LMS.view.main.CircularProgressBar', {
                         ctx.globalAlpha = 1;
                         var customFont = 'bold 15px Arial';
                         this.showSimpleDraw(customFont);
+
+                        var me = this,
+                            records = {
+                                value: me.config.value,
+                                maxValue: me.config.maxValue,
+                                textColor: me.config.textColor,
+                                pendingColor: me.config.pendingColor
+                            };
+                        me.fireEvent('mouseleave',me,records);
                     },
                     element: 'innerElement'
                 }
