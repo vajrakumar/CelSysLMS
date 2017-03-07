@@ -3,7 +3,6 @@ Ext.define("LMS.view.main.LeaveWindow", {
     xtype: 'leave-window',
     reference: 'leavePopupWindow',
     title: "Apply For Leave",
-    //layout: 'fit',
     modal: true,
     controller: 'leavewindowcontroller',
     requires: [
@@ -13,7 +12,7 @@ Ext.define("LMS.view.main.LeaveWindow", {
     ],
     viewModel: {
         type: 'leaveformviewmodel',
-        
+
 
     },
     items: [{
@@ -105,7 +104,7 @@ Ext.define("LMS.view.main.LeaveWindow", {
             {
                 xtype: 'displayfield',
                 fieldLabel: 'Mail Body',
-                bind: 'Hey <br> I am on leave from {fromdate} to {todate} due to {reason}.Please call or email me if required.<br> Regards,<br> Goutham'
+                bind: 'Hey <br> I am on leave from {fromdate} to {todate} due to {reason}.Please call or email me if required.<br> Regards,<br> John Doe'
             }
         ],
         buttons: [{
