@@ -14,11 +14,10 @@ Ext.define('LMS.view.main.LeaveGrid', {
 	},
 	extend: 'Ext.grid.Panel',
 
-	//This defines columns
 	listeners: {
 
 
-		itemdblclick: 'onclickContextMenu',
+		itemdblclick: 'editLeave',
 
 
 	},
@@ -35,6 +34,7 @@ Ext.define('LMS.view.main.LeaveGrid', {
 		}
 	},
 	plugin :[{ptype:"gridFilter"}],
+	//This defines columns
 	columns: [{
 			dataIndex: 'from_date',
 			formatter: 'date("m/d/Y")',

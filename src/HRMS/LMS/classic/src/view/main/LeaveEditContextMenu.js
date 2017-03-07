@@ -29,6 +29,16 @@ Ext.define("LMS.view.main.LeaveEditContextMenu", {
         }
 
         contextMenu.showAt(browser_event_window.getXY());
-    }
+    },
+    editLeave:function(grid , record , item , index , e , eOpts){
+    var win = Ext.create({
+        xtype: 'leave-window'
+    });
+    win.show();
+    win.getViewModel().set('from',Ext.Date.format(new Date(record.data.from_date),'d/m/Y'));
+    win.getViewModel().set('to',Ext.Date.format(new Date(record.data.to_date),'d/m/Y'));
+    win.getViewModel().set('reason',record.data.description);
+  }
+
 
 })
