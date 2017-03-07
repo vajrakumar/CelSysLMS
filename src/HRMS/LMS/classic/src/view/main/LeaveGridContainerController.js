@@ -32,11 +32,17 @@ Ext.define('LMS.view.main.LeaveGridContainerController', {
 
         storeref.filter('description', newValue)
 
-    }
+    },
 
+ 
 
 
 });
+
+
+
+
+
 
 function store_filter_status(storeref, newValue_data) {
 
