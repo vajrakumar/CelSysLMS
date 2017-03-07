@@ -4,7 +4,9 @@ Ext.define('LMS.view.main.LeaveFormViewModel',{
   data:{
     from: null,
     to:null,
-    reason:null
+    reason:null,
+    edit:false,
+    id:0
   },
   formulas:{
     datediff: function(get){

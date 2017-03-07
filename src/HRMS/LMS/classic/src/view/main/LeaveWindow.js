@@ -99,7 +99,9 @@ Ext.define("LMS.view.main.LeaveWindow", {
                         type: 'Employee'
                     },
                     displayField: 'name',
-                    valueField: 'email'
+                    filterPickList: true,
+                    valueField: 'email',
+                    tipTpl:'{email}'
             },
             {
                 xtype: 'displayfield',
