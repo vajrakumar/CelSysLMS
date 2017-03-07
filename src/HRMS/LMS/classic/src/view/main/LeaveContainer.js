@@ -13,7 +13,7 @@ Ext.define('LMS.view.main.LeaveContainer', {
         xtype: 'container',
         layout: 'hbox',
         defaults: {
-            margin: '25 25 25 25'
+           margin: '25 25 25 25'
         },
         items: [{
             xtype: 'circularprogressbar',
@@ -38,14 +38,16 @@ Ext.define('LMS.view.main.LeaveContainer', {
                 mouseleave: function (pBar, records) {
                 },
                 mouseover: function (pBar, records) {
-                    var leaveDetails = "Total: " + records.maxValue + "<br/>Availed: " + records.value + "<br/> Balance: " + (records.maxValue - records.value);
+                    var leaveDetails = "Balance: " + (records.maxValue - records.value) + "<br/>Availed: " + records.value + "<br/>Total: " + records.maxValue;
                     var tip = Ext.create('Ext.tip.ToolTip',{
-                        html: leaveDetails,
-                        title: '<a href="#">PL Details</a>',
+                        html: '<b>' + leaveDetails + '</b>',
+                        title: '<b>PL Details</b>',
+                        titleAlign: 'center',
                         target: pBar,
                         anchor: 'top',
-                        width: 150,
-                        style: 'text-align:left'
+                        width: 180,
+                        bodyStyle: 'background:#ffffcc; padding:10px; color:black',
+                        style: 'text-align:left;'
                     });
                     tip.on('hide', function() {
                         tip.destroy(tip);
@@ -74,14 +76,16 @@ Ext.define('LMS.view.main.LeaveContainer', {
                 mouseleave: function (pBar, records) {
                 },
                 mouseover: function (pBar, records) {
-                    var leaveDetails = "Total: " + records.maxValue + "<br/>Availed: " + records.value + "<br/> Balance: " + (records.maxValue - records.value);
+                    var leaveDetails = "Balance: " + (records.maxValue - records.value) + "<br/>Availed: " + records.value + "<br/>Total: " + records.maxValue;
                     var tip = Ext.create('Ext.tip.ToolTip',{
-                        html: leaveDetails,
-                        title: '<a href="#">SL/CL Details</a>',
+                        html: '<b>' + leaveDetails + '</b>',
+                        title: '<b>SL/CL Details</b>',
+                        titleAlign: 'center',
                         target: pBar,
                         anchor: 'top',
-                        width: 150,
-                        style: 'text-align:left'
+                        width: 180,
+                        bodyStyle: 'background:#ffffcc; padding:10px; color:black',
+                        style: 'text-align:left;'
                     });
                     tip.on('hide', function() {
                         tip.destroy(tip);
@@ -110,14 +114,16 @@ Ext.define('LMS.view.main.LeaveContainer', {
                 mouseleave: function (pBar, records) {
                 },
                 mouseover: function (pBar, records) {
-                    var leaveDetails = "Total: " + records.maxValue + "<br/>Availed: " + records.value + "<br/> Balance: " + (records.maxValue - records.value);
+                    var leaveDetails = "Balance: " + (records.maxValue - records.value) + "<br/>Availed: " + records.value + "<br/>Total: " + records.maxValue;
                     var tip = Ext.create('Ext.tip.ToolTip',{
-                        html: leaveDetails,
-                        title: '<a href="#">Comp off Details</a>',
+                        html: '<b>' + leaveDetails + '</b>',
+                        title: '<b>Comp off Details</b>',
+                        titleAlign: 'center',
                         target: pBar,
                         anchor: 'top',
-                        width: 150,
-                        style: 'text-align:left'
+                        width: 180,
+                        bodyStyle: 'background:#ffffcc; padding:10px; color:black',
+                        style: 'text-align:left;'
                     });
                     tip.on('hide', function() {
                         tip.destroy(tip);
