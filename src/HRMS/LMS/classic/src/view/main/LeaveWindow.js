@@ -3,6 +3,7 @@ Ext.define("LMS.view.main.LeaveWindow", {
     xtype: 'leave-window',
     reference: 'leavePopupWindow',
     title: "Apply For Leave",
+
     modal: true,
     controller: 'leavewindowcontroller',
     requires: [
@@ -19,15 +20,20 @@ Ext.define("LMS.view.main.LeaveWindow", {
         xtype: 'form',
         reference: 'leaveForm',
         padding: 10,
-
-        layout: 'form',
-        items: [{
+        layout: 'vbox',
+        items: [
+              {
+                xtype:'fieldcontainer',
+                //fieldLabel:'Dates',
+                layout:{
+                  type:'hbox'
+                },
+                items:[{
                 xtype: 'datefield',
                 fieldLabel: 'From',
                 name:'from',
                 bind: '{from}',
                 format:'d/m/Y',
-                //layout:'form',
                 reference:'fromdate',
                 allowBlank:false,
                 disabledDays:[0, 6],
@@ -38,7 +44,8 @@ Ext.define("LMS.view.main.LeaveWindow", {
                   change:'onFromDateChange',
                   afterrender:'onCalendarRender'
                 }
-            }, {
+            },
+            {
                 xtype: 'datefield',
                 fieldLabel: 'To',
                 name:'to',
@@ -52,7 +59,10 @@ Ext.define("LMS.view.main.LeaveWindow", {
                   change:'onToDateChange',
                   afterrender:'onCalendarRender'
                 }
-            }, {
+            }
+          ]
+        },
+          {
                 xtype: 'displayfield',
                 fieldLabel: 'Days:',
                 bind: '{datediff}'
@@ -66,20 +76,21 @@ Ext.define("LMS.view.main.LeaveWindow", {
                 },
                 items: [{
                         name: 'leaveType',
-                        inputValue:1,
+                        inputValue:3,
                         boxLabel: 'PL',
                         listeners:{
                           change:'disablePastDays'
                         }
+
                     },
                     {
                         name: 'leaveType',
                         inputValue: 2,
-                        boxLabel: 'CL'
+                        boxLabel: 'CL/SL'
                     },
                     {
                         name: 'leaveType',
-                        inputValue: 3,
+                        inputValue: 4,
                         boxLabel: 'Comp Off'
                     }
                 ]
@@ -101,7 +112,12 @@ Ext.define("LMS.view.main.LeaveWindow", {
                     displayField: 'name',
                     filterPickList: true,
                     valueField: 'email',
-                    tipTpl:'{email}'
+                    tipTpl:'{email}',
+                    listConfig:{
+                      getInnerTpl : function(){
+                        return '<div data-qtip="'+'{email}'+'">{name}</div>'
+                      }
+                    }
             },
             {
                 xtype: 'displayfield',
