@@ -6,7 +6,7 @@
  * TODO - Replace this content of this view to suite the needs of your application.
  */
 Ext.define('LMS.view.main.Main', {
-    extend: 'Ext.panel.Panel',
+    extend: 'Ext.tab.Panel',
     xtype: 'app-main',
     
     requires: [
@@ -15,8 +15,8 @@ Ext.define('LMS.view.main.Main', {
         'LMS.view.main.EmployeeGrid',
         'LMS.view.main.LeaveContainer',
 	    'LMS.view.main.LeaveGrid',
-'LMS.view.main.LeaveGridContainerPanel',
-         'LMS.view.main.MainController',
+        'LMS.view.main.LeaveGridContainerPanel',
+        'LMS.view.main.MainController',
         'LMS.view.main.MainModel'     
     ],
     controller: 'main',
@@ -42,11 +42,13 @@ Ext.define('LMS.view.main.Main', {
             style:{
                 'padding':'20px',
                 'font-size':'32px',
+		 'color':'white',
                 'align':'center'
             }
         },'->',{
             xtype:'tbtext',
-            html:'Hi Employee'           
+            html:'Hi Employee'           ,
+	    style:{'color':'white'}
         },{
        
             xtype: 'button',
@@ -61,13 +63,37 @@ Ext.define('LMS.view.main.Main', {
             //src:'resources/images/images.jpg'
         }]
     }],
-    items:[{
-        xtype:'grid_container',
-        region:'center'
-    },{
-       xtype:'leaveitems',
-       region: 'east'
-    }]
+     items:[{
+       title:'Employee',
+       xtype:'panel',
+       layout:'border',
+       items:[{
+           xtype : 'panel',
+           region : 'center',
+           layout : 'border',
+           items:[{
+               xtype:'leaveitems',
+           }]
 
+       },{
+           xtype:'panel',
+           region:'west',
+           title:'Leave Status',
+           split:true,
+           collapsible:true,
+           width:550,
+           minWidth:175,
+           maxWidth:650,
+           items:[{
+                xtype:'grid_container',
+           }]
+        }]
+    },{
+        title:'Manager',
+        xtype:'container',
+        items:[{
+            xtype:'managergrid'
+        }]
+    }]
 });
 
