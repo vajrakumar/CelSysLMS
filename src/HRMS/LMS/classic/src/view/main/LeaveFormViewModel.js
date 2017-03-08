@@ -6,7 +6,10 @@ Ext.define('LMS.view.main.LeaveFormViewModel',{
     to:null,
     reason:null,
     edit:false,
-    id:0
+    id:0,
+    leave_type_id:{
+            leaveType:3
+    }
   },
   formulas:{
     datediff: function(get){
