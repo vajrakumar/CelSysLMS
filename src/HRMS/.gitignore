@@ -1,3 +1,7 @@
 build
 LMS/sass/config.rb
 bootstrap.**
+LMS/classic.json
+LMS/classic.jsonp
+LMS/modern.json
+LMS/modern.jsonp
