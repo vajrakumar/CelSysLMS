@@ -1,26 +1,26 @@
 Ext.define('LMS.view.login.Login', {
     extend: 'Ext.container.Container',
-    alias:'widget.login-page',
-     controller: 'login',
+    alias: 'widget.login-page',
+    controller: 'login',
     bodyPadding: 100,
     title: 'Login Window',
-    cls:'ctr-cls',
-    layout:{
-        type:'vbox',
-        align:'center',
-        pack:'center',
-        padding:'150',        
+    cls: 'ctr-cls',
+    layout: {
+        type: 'vbox',
+        align: 'center',
+        pack: 'center',
+        padding: '150',
     },
-   items:[{
+    items: [{
         xtype: 'form',
-        bodyCls:'form-cls', 
-        layout:{
-        type:'vbox',
-        align:'center',
-        pack:'center',
-        padding:'60',
-        ui: '',
-               
+        bodyCls: 'form-cls',
+        layout: {
+            type: 'vbox',
+            align: 'center',
+            pack: 'center',
+            padding: '60',
+            ui: '',
+
         },
         items: [{
             xtype: 'textfield',
@@ -41,13 +41,13 @@ Ext.define('LMS.view.login.Login', {
             text: 'Login',
             //cls: 'x-toolbar-grey-btn',
             //ui:'round',
-            cls:'button-cls',
+            cls: 'button-cls',
             formBind: true,
             listeners: {
                 click: 'onLoginClick'
             }
         }],
-    }],    
-    renderTo:Ext.getBody()
-    
+    }],
+    renderTo: Ext.getBody()
+
 });

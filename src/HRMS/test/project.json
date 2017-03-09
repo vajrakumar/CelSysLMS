@@ -1,0 +1,15 @@
+{
+    "framework": "jasmine",
+    "libs": [],
+    "coverageFilters": [],
+    "scenarios": [
+        {
+            "libs": [],
+            "coverageFilters": [],
+            "sandbox": true,
+            "directory": "E2E",
+            "name": "E2E"
+        }
+    ],
+    "subjectUrl": "http://localhost:1841/LMS/"
+}
