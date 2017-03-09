@@ -35,7 +35,7 @@ describe("Login", function() {
         // ViewPort.main().visible();
     });
 
-    it('should logout', function() {
+    xit('should logout', function() {
         ViewPort.logOutButton().click();
     });
 });
