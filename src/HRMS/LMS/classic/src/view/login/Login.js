@@ -46,8 +46,7 @@ Ext.define('LMS.view.login.Login', {
             listeners: {
                 click: 'onLoginClick'
             }
-        }],
+        }]
     }],
     renderTo: Ext.getBody()
-
 });

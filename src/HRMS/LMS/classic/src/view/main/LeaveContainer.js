@@ -13,7 +13,7 @@ Ext.define('LMS.view.main.LeaveContainer', {
         xtype: 'container',
         layout: 'hbox',
         defaults: {
-           margin: '25 25 25 25'
+            margin: '25 25 25 25'
         },
         items: [{
             xtype: 'circularprogressbar',
@@ -32,14 +32,13 @@ Ext.define('LMS.view.main.LeaveContainer', {
             titleColor: 'red',
             start: 0,
             listeners: {
-                click: function (pBar, records) {
+                click: function(pBar, records) {
                     Ext.Msg.alert("Leave details", "You availed " + records.value + " leave out of " + records.maxValue);
                 },
-                mouseleave: function (pBar, records) {
-                },
-                mouseover: function (pBar, records) {
+                mouseleave: function(pBar, records) {},
+                mouseover: function(pBar, records) {
                     var leaveDetails = "Balance: " + (records.maxValue - records.value) + "<br/>Availed: " + records.value + "<br/>Total: " + records.maxValue;
-                    var tip = Ext.create('Ext.tip.ToolTip',{
+                    var tip = Ext.create('Ext.tip.ToolTip', {
                         html: '<b>' + leaveDetails + '</b>',
                         title: '<b>PL Details</b>',
                         titleAlign: 'center',
@@ -70,14 +69,13 @@ Ext.define('LMS.view.main.LeaveContainer', {
             titleColor: 'red',
             start: 2,
             listeners: {
-                click: function (pBar, records) {
+                click: function(pBar, records) {
                     Ext.Msg.alert("Leave details", "You availed " + records.value + " leave out of " + records.maxValue);
                 },
-                mouseleave: function (pBar, records) {
-                },
-                mouseover: function (pBar, records) {
+                mouseleave: function(pBar, records) {},
+                mouseover: function(pBar, records) {
                     var leaveDetails = "Balance: " + (records.maxValue - records.value) + "<br/>Availed: " + records.value + "<br/>Total: " + records.maxValue;
-                    var tip = Ext.create('Ext.tip.ToolTip',{
+                    var tip = Ext.create('Ext.tip.ToolTip', {
                         html: '<b>' + leaveDetails + '</b>',
                         title: '<b>SL/CL Details</b>',
                         titleAlign: 'center',
@@ -108,14 +106,13 @@ Ext.define('LMS.view.main.LeaveContainer', {
             titleColor: 'red',
             start: 2,
             listeners: {
-                click: function (pBar, records) {
+                click: function(pBar, records) {
                     Ext.Msg.alert("Leave details", "You availed " + records.value + " leave out of " + records.maxValue);
                 },
-                mouseleave: function (pBar, records) {
-                },
-                mouseover: function (pBar, records) {
+                mouseleave: function(pBar, records) {},
+                mouseover: function(pBar, records) {
                     var leaveDetails = "Balance: " + (records.maxValue - records.value) + "<br/>Availed: " + records.value + "<br/>Total: " + records.maxValue;
-                    var tip = Ext.create('Ext.tip.ToolTip',{
+                    var tip = Ext.create('Ext.tip.ToolTip', {
                         html: '<b>' + leaveDetails + '</b>',
                         title: '<b>Comp off Details</b>',
                         titleAlign: 'center',

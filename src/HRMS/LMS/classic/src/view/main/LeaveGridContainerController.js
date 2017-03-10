@@ -1,7 +1,7 @@
 Ext.define('LMS.view.main.LeaveGridContainerController', {
     extend: "Ext.app.ViewController",
     alias: 'controller.LeaveGridContainerController',
-    onComboChange: function (cont, newValue, oldValue, eOpts) {
+    onComboChange: function(cont, newValue, oldValue, eOpts) {
         var storeref = this.lookupReference('GridLeave').getStore();
         if (newValue == 'Approved') {
             newValue_data = 0;
@@ -19,24 +19,20 @@ Ext.define('LMS.view.main.LeaveGridContainerController', {
             store_filter_status(storeref, newValue_data);
 
         } else {
-            
+
 
             storeref.removeFilter('status_filter');
         }
 
 
     },
-    onSearch: function (cont, newValue, oldValue, eOpts) {
+    onSearch: function(cont, newValue, oldValue, eOpts) {
         var storeref = this.lookupReference('GridLeave').getStore();
 
 
         storeref.filter('description', newValue)
 
-    },
-
- 
-
-
+    }
 });
 
 

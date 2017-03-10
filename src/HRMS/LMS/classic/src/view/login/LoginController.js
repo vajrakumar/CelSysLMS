@@ -1,7 +1,7 @@
 Ext.define('LMS.view.login.LoginController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.login',
-    
+
     onLoginClick: function() {
         localStorage.setItem("celestialEmp", true);
 

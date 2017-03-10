@@ -17,6 +17,11 @@
     },
     "name": "HRMS",
     "tests": {
-        "path": "test/project.json"
+        "path": "test/project.json",
+        "browser": {
+            "farms": []
+        },
+        "archiveRoot": "/ci",
+        "archiveServer": "http://localhost:1903"
     }
 }

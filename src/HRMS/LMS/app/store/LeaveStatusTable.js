@@ -13,13 +13,11 @@ Ext.define('LMS.store.LeaveStatusTable', {
         url: 'http://192.168.6.184:3000/leave_requests/',
         reader: {
             type: 'json'
-        },
+        }
     },
     autoLoad: 'true',
     sorters: [{
         property: 'created_at',
         direction: 'DESC'
-    }],
-
-
+    }]
 })

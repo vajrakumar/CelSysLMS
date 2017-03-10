@@ -72,7 +72,7 @@ Ext.define('LMS.view.main.Main', {
             region: 'center',
             layout: 'border',
             items: [{
-                xtype: 'leaveitems',
+                xtype: 'leaveitems'
             }]
 
         }, {

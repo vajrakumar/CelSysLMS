@@ -21,65 +21,64 @@ Ext.define("LMS.view.main.LeaveWindow", {
         reference: 'leaveForm',
         padding: 10,
         layout: 'vbox',
-        items: [
-              {
-                xtype:'fieldcontainer',
+        items: [{
+                xtype: 'fieldcontainer',
                 //fieldLabel:'Dates',
-                layout:{
-                  type:'hbox'
+                layout: {
+                    type: 'hbox'
                 },
-                items:[{
-                xtype: 'datefield',
-                fieldLabel: 'From',
-                name:'from',
-                bind: '{from}',
-                format:'d/m/Y',
-                reference:'fromdate',
-                allowBlank:false,
-                disabledDays:[0, 6],
-                disabledDaysText:'Cannot select Weekends',
-                disabledDatesText:'Cannot select Holidays',
-                formatText:'',
-                listeners:{
-                  change:'onFromDateChange',
-                  afterrender:'onCalendarRender'
-                }
+                items: [{
+                        xtype: 'datefield',
+                        fieldLabel: 'From',
+                        name: 'from',
+                        bind: '{from}',
+                        format: 'd/m/Y',
+                        reference: 'fromdate',
+                        allowBlank: false,
+                        disabledDays: [0, 6],
+                        disabledDaysText: 'Cannot select Weekends',
+                        disabledDatesText: 'Cannot select Holidays',
+                        formatText: '',
+                        listeners: {
+                            change: 'onFromDateChange',
+                            afterrender: 'onCalendarRender'
+                        }
+                    },
+                    {
+                        xtype: 'datefield',
+                        fieldLabel: 'To',
+                        name: 'to',
+                        bind: '{to}',
+                        format: 'd/m/Y',
+                        reference: 'todate',
+                        allowBlank: false,
+                        disabledDays: [0, 6],
+                        formatText: '',
+                        listeners: {
+                            change: 'onToDateChange',
+                            afterrender: 'onCalendarRender'
+                        }
+                    }
+                ]
             },
             {
-                xtype: 'datefield',
-                fieldLabel: 'To',
-                name:'to',
-                bind:'{to}',
-                format:'d/m/Y',
-                reference:'todate',
-                allowBlank:false,
-                disabledDays:[0, 6],
-                formatText:'',
-                listeners:{
-                  change:'onToDateChange',
-                  afterrender:'onCalendarRender'
-                }
-            }
-          ]
-        },
-          {
                 xtype: 'displayfield',
                 fieldLabel: 'Days:',
                 bind: '{datediff}'
             },
             {
                 xtype: "fieldcontainer",
-                defaultType:'radio',
+                defaultType: 'radio',
                 fieldLabel: "Type of Leave",
                 layout: {
                     type: 'hbox'
                 },
                 items: [{
                         name: 'leaveType',
-                        inputValue:3,
+                        inputValue: 3,
                         boxLabel: 'PL',
-                        listeners:{
-                          change:'disablePastDays'
+                        listeners: {
+                            change: 'disablePastDays'
                         }
 
                     },
@@ -98,26 +97,26 @@ Ext.define("LMS.view.main.LeaveWindow", {
             {
                 xtype: 'textareafield',
                 fieldLabel: 'Reason',
-                width:'100%',
-                name:'reason',
-                bind:'{reason}',
-                maxLength:500
+                width: '100%',
+                name: 'reason',
+                bind: '{reason}',
+                maxLength: 500
             },
             {
-                    xtype: 'tagfield',
-                    fieldLabel: 'Notify',
-                    store: {
-                        type: 'Employee'
-                    },
-                    displayField: 'name',
-                    filterPickList: true,
-                    valueField: 'email',
-                    tipTpl:'{email}',
-                    listConfig:{
-                      getInnerTpl : function(){
-                        return '<div data-qtip="'+'{email}'+'">{name}</div>'
-                      }
+                xtype: 'tagfield',
+                fieldLabel: 'Notify',
+                store: {
+                    type: 'Employee'
+                },
+                displayField: 'name',
+                filterPickList: true,
+                valueField: 'email',
+                tipTpl: '{email}',
+                listConfig: {
+                    getInnerTpl: function() {
+                        return '<div data-qtip="' + '{email}' + '">{name}</div>'
                     }
+                }
             },
             {
                 xtype: 'displayfield',
@@ -130,8 +129,8 @@ Ext.define("LMS.view.main.LeaveWindow", {
             handler: 'onFormCancel'
         }, {
             text: 'Submit',
-            formBind:true,
-            handler:'onFormSubmit'
+            formBind: true,
+            handler: 'onFormSubmit'
 
         }]
     }]

@@ -15,7 +15,7 @@ Ext.define('LMS.Application', {
         'LMS.view.login.Login',
         'LMS.view.main.Main'
     ],
-    launch: function () {
+    launch: function() {
         //local storage variable
         var loggedIn;
         loggedIn = localStorage.getItem("celestialEmp");

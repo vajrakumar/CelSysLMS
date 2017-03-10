@@ -8,7 +8,16 @@
             "coverageFilters": [],
             "sandbox": true,
             "directory": "E2E",
-            "name": "E2E"
+            "name": "E2E",
+            "globals": "*"
+        },
+        {
+            "libs": [],
+            "coverageFilters": [],
+            "sandbox": false,
+            "globals": "*",
+            "directory": "New_Scenario_1",
+            "name": "New Scenario 1"
         }
     ],
     "subjectUrl": "http://localhost:1841/LMS/"

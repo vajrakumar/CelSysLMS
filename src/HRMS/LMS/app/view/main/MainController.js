@@ -2,7 +2,7 @@ Ext.define('LMS.view.main.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
 
-    onClickButton: function () {
+    onClickButton: function() {
 
         // Remove the localStorage key/value
         localStorage.removeItem('celestialEmp');
