@@ -9,7 +9,7 @@ Ext.define('LMS.view.login.Login', {
         type: 'vbox',
         align: 'center',
         pack: 'center',
-        padding: '150',
+        padding: '150'
     },
     items: [{
         xtype: 'form',
@@ -19,8 +19,7 @@ Ext.define('LMS.view.login.Login', {
             align: 'center',
             pack: 'center',
             padding: '60',
-            ui: '',
-
+            ui: ''
         },
         items: [{
             xtype: 'textfield',

@@ -12,9 +12,7 @@ Ext.define("LMS.view.main.LeaveWindow", {
         'LMS.view.main.LeaveWindowController'
     ],
     viewModel: {
-        type: 'leaveformviewmodel',
-
-
+        type: 'leaveformviewmodel'
     },
     items: [{
         xtype: 'form',
@@ -131,8 +129,6 @@ Ext.define("LMS.view.main.LeaveWindow", {
             text: 'Submit',
             formBind: true,
             handler: 'onFormSubmit'
-
         }]
     }]
-
 })

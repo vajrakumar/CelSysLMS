@@ -59,8 +59,8 @@ Ext.define('LMS.view.main.Main', {
         }, {
             xtype: 'image',
             width: 30,
-            height: 30,
-            //src:'resources/images/images.jpg'
+            height: 30
+                //src:'resources/images/images.jpg'
         }]
     }],
     items: [{
@@ -85,7 +85,7 @@ Ext.define('LMS.view.main.Main', {
             minWidth: 175,
             maxWidth: 650,
             items: [{
-                xtype: 'grid_container',
+                xtype: 'grid_container'
             }]
         }]
     }, {
